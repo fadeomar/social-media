@@ -6,7 +6,7 @@ import axios from "axios";
 //Redux
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { SET_AUTHENTICATED, SET_UNAUTHENTICATED } from "./redux/types";
+import { SET_AUTHENTICATED } from "./redux/types";
 import { logoutUser, getUserData } from "./redux/actions/userActions";
 
 import Home from "./pages/home";
