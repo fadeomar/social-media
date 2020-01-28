@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 // const bodyParser = require('body-parser')
 const functions = require("firebase-functions");
@@ -23,6 +24,11 @@ const {
 } = require("./handlers/users");
 const FBAuth = require("./utils/FBauth");
 
+app.use(
+  cors({
+    origin: ["http://localhost:3000"]
+  })
+);
 app.use(express.json());
 
 app.get("/screams", getAllScreams);
