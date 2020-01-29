@@ -25,6 +25,7 @@ export const loginUser = (userData, history) => dispatch => {
 };
 
 export const getUserData = () => dispatch => {
+  dispatch({ type: LOADING_USER });
   axios
     .get("/user")
     .then(res => {
