@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import withStyle from "@material-ui/core/styles/withStyles";
-import { style } from "@material-ui/system";
 
 import { connect } from "react-redux";
 import { editUserDetails } from "../redux/actions/userActions";
@@ -13,7 +12,6 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import EditIcon from "@material-ui/icons/Edit"; ///
 import IconButton from "@material-ui/core/IconButton";
