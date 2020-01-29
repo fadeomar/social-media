@@ -122,6 +122,7 @@ export class Profile extends Component {
               <CustomButton
                 tip="Edit profile picture"
                 onClick={this.handleEditImage}
+                placement="top"
                 btnClass={classes.profileButton}
               >
                 <EditIcon color="primary" />
@@ -163,7 +164,11 @@ export class Profile extends Component {
                 Joined {dayjs(createdAt).format("MMM YYYY")}
               </span>
             </div>
-            <CustomButton tip="Logout" onClick={this.handleLogout}>
+            <CustomButton
+              tip="Logout"
+              onClick={this.handleLogout}
+              placement="top"
+            >
               <KeyboardReturn color="primary" />
             </CustomButton>
             <EditDetails />
