@@ -26,6 +26,7 @@ import {
   KeyboardReturn
 } from "@material-ui/icons";
 import { red } from "@material-ui/core/colors";
+import CustomButton from "../utils/CustomButton";
 // import LocationOn from "@material-ui/icons/LocationOn";
 
 //Icons
@@ -125,14 +126,14 @@ export class Profile extends Component {
                 hidden="hidden"
                 onChange={this.handleImageChange}
               />
-              <Tooltip title="Edit profile picture" placement="top">
-                <IconButton
-                  onClick={this.handleEditImage}
-                  className={classes.profileButton}
-                >
-                  <EditIcon color="primary" />
-                </IconButton>
-              </Tooltip>
+              {/*replace the Tooltip block by CustomButton */}
+              <CustomButton
+                tip="Edit profile picture"
+                onClick={this.handleEditImage}
+                btnClass={classes.profileButton}
+              >
+                <EditIcon color="primary" />
+              </CustomButton>
             </div>
             <hr className={classes.profileHr} />
             <div className={classes.profileDetails}>
@@ -170,11 +171,9 @@ export class Profile extends Component {
                 Joined {dayjs(createdAt).format("MMM YYYY")}
               </span>
             </div>
-            <Tooltip title="Logout" placement="top">
-              <IconButton onClick={this.handleLogout}>
-                <KeyboardReturn color="primary" />
-              </IconButton>
-            </Tooltip>
+            <CustomButton tip="Logout" onClick={this.handleLogout}>
+              <KeyboardReturn color="primary" />
+            </CustomButton>
             <EditDetails />
           </div>
         </Paper>

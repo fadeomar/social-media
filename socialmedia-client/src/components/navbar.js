@@ -23,15 +23,15 @@ class Navbar extends Component {
           {authenticated ? (
             <>
               <CustomButton tip="Post a scream">
-                <AddIcon color="primary" />
+                <AddIcon color="secondary" />
               </CustomButton>
               <Link to="/">
                 <CustomButton tip="Home">
-                  <HomeIcon color="primary" />
+                  <HomeIcon color="secondary" />
                 </CustomButton>
               </Link>
               <CustomButton tip="notifiactions">
-                <Notifications color="primary" />
+                <Notifications color="secondary" />
               </CustomButton>
             </>
           ) : (
