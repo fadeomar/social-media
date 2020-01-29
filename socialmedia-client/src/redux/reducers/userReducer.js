@@ -33,6 +33,7 @@ export default function(state = initialState, action) {
         authenticated: true,
         loading: false,
         ...action.payload
+        // ...state
       };
     case LOADING_USER:
       return {

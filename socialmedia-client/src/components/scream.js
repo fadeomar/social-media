@@ -86,6 +86,8 @@ class Scream extends Component {
       </CustomButton>
     );
 
+    const deleteButton = "d";
+
     return (
       <Card className={classes.card}>
         <CardMedia
@@ -102,6 +104,7 @@ class Scream extends Component {
           >
             {userHandle}
           </Typography>
+          {deleteButton}
           <Typography variant="body2" color="textSecondary">
             {dayjs(createAt).fromNow()}
           </Typography>
