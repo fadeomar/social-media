@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Scream from "../components/scream";
+import Profile from "../components/profile";
 
 import Grid from "@material-ui/core/Grid";
 
@@ -28,7 +29,7 @@ class Home extends Component {
           {screams}
         </Grid>
         <Grid item sm={4} xs={12}>
-          <p>profile...</p>
+          <Profile />
         </Grid>
       </Grid>
     );
