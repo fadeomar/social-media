@@ -20,7 +20,8 @@ import {
   LocationOn,
   Link as LinkIcon,
   CalendarToday,
-  Edit as EditIcon
+  Edit as EditIcon,
+  KeyboardReturn
 } from "@material-ui/icons";
 import { red } from "@material-ui/core/colors";
 // import LocationOn from "@material-ui/icons/LocationOn";
@@ -91,6 +92,10 @@ export class Profile extends Component {
   handleEditImage = () => {
     const fileInput = document.getElementById("imageInput");
     fileInput.click();
+  };
+
+  handleLogout = () => {
+    this.props.logoutUser();
   };
   render() {
     const {
@@ -163,6 +168,11 @@ export class Profile extends Component {
                 Joined {dayjs(createdAt).format("MMM YYYY")}
               </span>
             </div>
+            <Tooltip title="Logout" placement="top">
+              <IconButton onClick={this.handleLogout}>
+                <KeyboardReturn color="primary" />
+              </IconButton>
+            </Tooltip>
           </div>
         </Paper>
       ) : (
