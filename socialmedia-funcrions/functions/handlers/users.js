@@ -80,9 +80,7 @@ exports.login = (req, res) => {
     })
     .catch(error => {
       console.log(error);
-      return res
-        .status(403)
-        .json({ general: "worng credentials, please try again" });
+      return res.status(400).json({ general: error.message });
     });
 };
 
