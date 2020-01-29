@@ -16,7 +16,11 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import EditIcon from "@material-ui/icons/Edit"; ///
 import IconButton from "@material-ui/core/IconButton";
 
-const styles = {};
+const styles = {
+  button: {
+    float: "right"
+  }
+};
 class EditDetails extends Component {
   state = {
     bio: "",
@@ -135,11 +139,11 @@ const mapStateToProps = state => ({
   credentials: state.user.credentials
 });
 
-EditDetails.prototype = {
+EditDetails.propTypes = {
   editUserDetails: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps, { editUserDetails })(
-  withStyle(EditDetails, styles)
+  withStyle(styles)(EditDetails)
 );
