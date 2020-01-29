@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import ChatIcon from "@material-ui/icons/Chat";
 
 import CustomButton from "../utils/CustomButton";
+import DeleteScream from "./DeleteScream";
 import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcone from "@material-ui/icons/Favorite";
 
@@ -67,7 +68,10 @@ class Scream extends Component {
         commentCount,
         body
       },
-      user: { authenticated }
+      user: {
+        authenticated,
+        credentials: { handle }
+      }
     } = this.props;
 
     const likeButton = !authenticated ? (
@@ -86,7 +90,10 @@ class Scream extends Component {
       </CustomButton>
     );
 
-    const deleteButton = "d";
+    const deleteButton =
+      authenticated && userHandle === handle ? (
+        <DeleteScream screamId={screamId} />
+      ) : null;
 
     return (
       <Card className={classes.card}>
