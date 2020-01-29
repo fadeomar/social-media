@@ -15,7 +15,7 @@ export const loginUser = (userData, history) => dispatch => {
     .post(`/login`, userData)
     .then(res => {
       setAuthorizationHeader(res.data.token);
-      dispatch(getUserData());
+      getUserData();
       dispatch({ type: CLEAR_ERRORS });
       history.push("/");
     })
@@ -29,7 +29,7 @@ export const uploadImage = formData => dispatch => {
   axios
     .post("/user/image", formData)
     .then(() => {
-      dispatch(getUserData());
+      getUserData();
     })
     .catch(err => console.log(err));
 };

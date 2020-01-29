@@ -30,7 +30,6 @@ export default function(state = initialState, action) {
 
     case SET_USER:
       return {
-        ...state,
         authenticated: true,
         loading: false,
         ...action.payload
@@ -56,7 +55,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         likes: state.likes.filter(
-          like => like.screamId === action.payload.screamId
+          like => like.screamId !== action.payload.screamId
         ) ////// ===
       };
 
