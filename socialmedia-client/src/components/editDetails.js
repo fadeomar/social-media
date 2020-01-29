@@ -5,6 +5,8 @@ import withStyle from "@material-ui/core/styles/withStyles";
 import { connect } from "react-redux";
 import { editUserDetails } from "../redux/actions/userActions";
 
+import CustomButton from "../utils/CustomButton";
+
 //MUI stuff
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
@@ -13,7 +15,7 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import EditIcon from "@material-ui/icons/Edit"; ///
+import EditIcon from "@material-ui/icons/Edit";
 import IconButton from "@material-ui/core/IconButton";
 
 const styles = {
@@ -73,11 +75,13 @@ class EditDetails extends Component {
     const { classes } = this.props;
     return (
       <>
-        <Tooltip title="Edit Details" placement="top">
-          <IconButton onClick={this.handleOpen} className={classes.button}>
-            <EditIcon color="primary" />
-          </IconButton>
-        </Tooltip>
+        <CustomButton
+          tip="Edit Details"
+          onClick={this.handleOpen}
+          btnClass={classes.button}
+        >
+          <EditIcon color="primary" />
+        </CustomButton>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}

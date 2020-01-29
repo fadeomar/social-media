@@ -10,14 +10,7 @@ import { uploadImage, logoutUser } from "../redux/actions/userActions";
 import EditDetails from "./editDetails";
 
 //MUI stuff
-import {
-  Button,
-  Paper,
-  Link as MuLink,
-  Typography,
-  IconButton,
-  Tooltip
-} from "@material-ui/core";
+import { Button, Paper, Link as MuLink, Typography } from "@material-ui/core";
 import {
   LocationOn,
   Link as LinkIcon,
@@ -27,7 +20,6 @@ import {
 } from "@material-ui/icons";
 import { red } from "@material-ui/core/colors";
 import CustomButton from "../utils/CustomButton";
-// import LocationOn from "@material-ui/icons/LocationOn";
 
 //Icons
 const styles = {
