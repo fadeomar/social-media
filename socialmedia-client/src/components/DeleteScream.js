@@ -30,7 +30,8 @@ export class DeleteScream extends Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-  deleteScream = () => {
+
+  handleDelete = () => {
     this.props.deleteScream(this.props.screamId);
     this.setState({ open: false });
   };
@@ -59,7 +60,7 @@ export class DeleteScream extends Component {
             <Button onClick={this.handleClose} color="primary">
               Cancle
             </Button>
-            <Button onClick={this.deleteScream} color="secondary">
+            <Button onClick={this.handleDelete} color="secondary">
               Delete
             </Button>
           </DialogActions>

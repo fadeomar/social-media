@@ -44,7 +44,6 @@ class PsotScream extends Component {
       this.setState({ errors: nextProps.UI.errors });
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
-      console.log("object", nextProps.UI.errors, "ddd", nextProps.UI.loading);
       this.setState({ body: "", errors: {}, open: false });
     }
   }
