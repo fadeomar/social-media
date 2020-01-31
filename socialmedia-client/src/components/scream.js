@@ -23,7 +23,8 @@ import FavoriteIcone from "@material-ui/icons/Favorite";
 const styles = {
   card: {
     display: "flex",
-    margin: 20
+    margin: 20,
+    position: "relative"
   },
   image: {
     minWidth: 200
