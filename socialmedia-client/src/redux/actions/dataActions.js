@@ -79,12 +79,14 @@ export const postScream = newScream => dispatch => {
     .then(res => {
       dispatch({ type: POST_SCREAM, payload: res.data });
     })
+    .then(() => {
+      dispatch({ type: CLEAR_ERRORS });
+    })
     .catch(err => {
       dispatch({
         type: SET_ERRORS,
         payload: err.response.data
       });
-      dispatch({ type: CLEAR_ERRORS });
     });
 };
 
