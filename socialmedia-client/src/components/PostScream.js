@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import withStyle from "@material-ui/core/styles/withStyles";
 
 import { connect } from "react-redux";
-import { postScream } from "../redux/actions/dataActions";
+import { postScream, clearErrors } from "../redux/actions/dataActions";
 
 import CustomButton from "../utils/CustomButton";
 
@@ -19,7 +19,8 @@ import CloseIcon from "@material-ui/icons/Close";
 
 const styles = {
   submitBtn: {
-    position: "relative"
+    position: "relative",
+    marginTop: 20
   },
   progress: {
     position: "absolute"
@@ -38,12 +39,28 @@ class PsotScream extends Component {
     errors: {}
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors });
+    }
+  }
+
   handleOpen = () => {
     this.setState({ open: true });
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ open: false, errors: {} });
+    this.props.clearErrors();
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.postScream({ body: this.state.body });
   };
   render() {
     const { errors } = this.state;
@@ -77,6 +94,7 @@ class PsotScream extends Component {
                 type="text"
                 lable="SCREAM.. ~"
                 multiline
+                fullWidth
                 rows="3"
                 placeholder="Scream aat your fellow friends"
                 error={errors.body ? true : false}
@@ -93,7 +111,7 @@ class PsotScream extends Component {
               >
                 Submit
                 {loading && (
-                  <CircularProgress size="30" className={classes.progress} />
+                  <CircularProgress size={30} className={classes.progress} />
                 )}
               </Button>
             </form>
@@ -110,9 +128,10 @@ const mapStateToProps = state => ({
 
 postScream.propTypes = {
   postScream: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
   UI: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, { postScream })(
+export default connect(mapStateToProps, { postScream, clearErrors })(
   withStyle(styles)(PsotScream)
 );
