@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import withStyle from "@material-ui/core/styles/withStyles";
 
 import { connect } from "react-redux";
-import { postScream, clearErrors } from "../redux/actions/dataActions";
+import { postScream, clearErrors } from "../../redux/actions/dataActions";
 
-import CustomButton from "../utils/CustomButton";
+import CustomButton from "../../utils/CustomButton";
 
 //MUI stuff
 import Button from "@material-ui/core/Button";

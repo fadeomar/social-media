@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import Scream from "../components/scream";
-import Profile from "../components/profile";
+import Scream from "../components/scream/scream";
+import Profile from "../components/profile/profile";
 
 import { connect } from "react-redux";
 import { getScreams } from "../redux/actions/dataActions";

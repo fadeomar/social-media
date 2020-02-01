@@ -11,8 +11,8 @@ import Notifications from "@material-ui/icons/Notifications";
 
 import { connect } from "react-redux";
 
-import CustomButton from "../utils/CustomButton";
-import PostScream from "./PostScream";
+import CustomButton from "../../utils/CustomButton";
+import PostScream from "../scream/PostScream";
 
 class Navbar extends Component {
   render() {
