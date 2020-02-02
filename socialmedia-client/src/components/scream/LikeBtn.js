@@ -18,7 +18,6 @@ export class LikeBtn extends Component {
   };
 
   likeScream = () => {
-    console.log("asdasd");
     this.props.likeScream(this.props.screamId);
   };
 

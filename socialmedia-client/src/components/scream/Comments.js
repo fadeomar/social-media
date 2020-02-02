@@ -33,8 +33,6 @@ class Comments extends Component {
   state = {};
   render() {
     const { comments, classes } = this.props;
-    console.log(comments);
-    console.log("asdasdsdasdasdsa");
     return (
       <Grid container>
         {comments &&
