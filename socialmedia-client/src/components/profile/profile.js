@@ -6,6 +6,7 @@ import dayjs from "dayjs";
 
 import { connect } from "react-redux";
 import { uploadImage, logoutUser } from "../../redux/actions/userActions";
+import ProfileSkeleton from "../../utils/ProfileSkeleton";
 
 import EditDetails from "./editDetails";
 
@@ -200,7 +201,7 @@ export class Profile extends Component {
         </Paper>
       )
     ) : (
-      <p>...loading</p>
+      <ProfileSkeleton />
     );
     return profileMarkup;
   }

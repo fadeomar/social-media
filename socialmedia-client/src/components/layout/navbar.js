@@ -7,7 +7,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 
 import HomeIcon from "@material-ui/icons/Home";
-import Notifications from "@material-ui/icons/Notifications";
+// import Notifications from "@material-ui/icons/Notifications";
+import Notifications from "./Notifications";
 
 import { connect } from "react-redux";
 
@@ -28,9 +29,7 @@ class Navbar extends Component {
                   <HomeIcon color="secondary" />
                 </CustomButton>
               </Link>
-              <CustomButton tip="notifiactions">
-                <Notifications color="secondary" />
-              </CustomButton>
+              <Notifications color="secondary" />
             </>
           ) : (
             <>
