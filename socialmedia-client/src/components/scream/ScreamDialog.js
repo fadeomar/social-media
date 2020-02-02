@@ -8,10 +8,11 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getScream, clearErrors } from "../../redux/actions/dataActions";
 import LikeBtn from "./LikeBtn";
+import Comments from "./Comments";
+import CommentsForm from "./CommentsForm";
 
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -41,6 +42,11 @@ const styles = {
     textAlign: "center",
     marginTop: 50,
     marginBottom: 50
+  },
+  visebleSeparator: {
+    width: "100%",
+    borderBottom: "1px solid rgba(0,0,0,0.1)",
+    marginBottom: 20
   }
 };
 
@@ -56,6 +62,7 @@ class ScreamDialog extends Component {
 
   handleClose = () => {
     this.setState({ open: false });
+    this.props.clearErrors();
   };
   render() {
     const {
@@ -67,11 +74,12 @@ class ScreamDialog extends Component {
         likeCount,
         commentCount,
         userImage,
-        userHandle
+        userHandle,
+        comments
       },
       UI: { loading }
     } = this.props;
-
+    console.log(comments);
     const dialogMarkup = loading ? (
       <div className={classes.progressContainer}>
         <CircularProgress size={200} thickness={2} />
@@ -107,6 +115,9 @@ class ScreamDialog extends Component {
           </CustomButton>
           <span>{commentCount} comments</span>
         </Grid>
+        <hr className={classes.visebleSeparator} />
+        <CommentsForm screamId={screamId} />
+        <Comments comments={comments} />
       </Grid>
     );
     return (
@@ -142,6 +153,7 @@ class ScreamDialog extends Component {
 
 ScreamDialog.propTypes = {
   getScream: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
   screamId: PropTypes.string.isRequired,
   userHnadle: PropTypes.string.isRequired,
   scream: PropTypes.object.isRequired,
@@ -154,7 +166,8 @@ const mapStateToProps = state => ({
 });
 
 const mapActionsToProps = {
-  getScream
+  getScream,
+  clearErrors
 };
 
 export default connect(

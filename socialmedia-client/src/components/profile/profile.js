@@ -132,7 +132,7 @@ export class Profile extends Component {
             <div className={classes.profileDetails}>
               <MuLink
                 component={Link}
-                to={`/users/${handle}`}
+                to={`/user/${handle}`}
                 color="primary"
                 variant="h5"
               >
