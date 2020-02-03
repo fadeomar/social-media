@@ -29,7 +29,7 @@ export const getScreams = () => dispatch => {
       });
     })
     .catch(err => {
-      console.log(err);
+      console.log("data actions", err);
       dispatch({
         type: SET_SCREAMS,
         payload: []
@@ -48,7 +48,7 @@ export const likeScream = screamId => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log("like scream", err));
 };
 
 // unlike scream
@@ -61,7 +61,7 @@ export const unLikeScream = screamId => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log("unlike Scream", err));
 };
 
 //delete scream
@@ -72,7 +72,7 @@ export const deleteScream = screamId => dispatch => {
     .then(() => {
       dispatch({ type: DELETE_SCREAM, payload: screamId });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log("delete scream", err));
 };
 
 //post scream
@@ -109,7 +109,7 @@ export const getScream = screamId => dispatch => {
     .then(() => {
       dispatch({ type: STOP_LOADING_UI });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log("getscram", err));
 };
 
 //submit comments
