@@ -1,63 +1,65 @@
 import React, { Component } from "react";
 import CustomButton from "../../utils/CustomButton";
-import PropTypes from "prop-types";
-import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
-import FavoriteIcone from "@material-ui/icons/Favorite";
-import { connect } from "react-redux";
-import { likeScream, unLikeScream } from "../../redux/actions/dataActions";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+// Icons
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import FavoriteBorder from "@material-ui/icons/FavoriteBorder";
+// REdux
+import { connect } from "react-redux";
+import { likeScream, unlikeScream } from "../../redux/actions/dataActions";
 
-export class LikeBtn extends Component {
+export class LikeButton extends Component {
   likedScream = () => {
     if (
       this.props.user.likes &&
       this.props.user.likes.find(like => like.screamId === this.props.screamId)
-    ) {
+    )
       return true;
-    } else return false;
+    else return false;
   };
-
   likeScream = () => {
     this.props.likeScream(this.props.screamId);
   };
-
-  unLikeScream = () => {
-    this.props.unLikeScream(this.props.screamId);
+  unlikeScream = () => {
+    this.props.unlikeScream(this.props.screamId);
   };
-
   render() {
     const { authenticated } = this.props.user;
     const likeButton = !authenticated ? (
-      <CustomButton tip="like">
-        <Link to="/login">
+      <Link to="/login">
+        <CustomButton tip="Like">
           <FavoriteBorder color="primary" />
-        </Link>
-      </CustomButton>
+        </CustomButton>
+      </Link>
     ) : this.likedScream() ? (
-      <CustomButton tip="Undo like" onClick={this.unLikeScream}>
-        <FavoriteIcone color="primary" />
+      <CustomButton tip="Undo like" onClick={this.unlikeScream}>
+        {console.log("likedddd")}
+        <FavoriteIcon color="primary" />
       </CustomButton>
     ) : (
-      <CustomButton tip="like" onClick={this.likeScream}>
+      <CustomButton tip="Like" onClick={this.likeScream}>
         <FavoriteBorder color="primary" />
       </CustomButton>
     );
     return likeButton;
   }
 }
-LikeBtn.propTypes = {
-  likeScream: PropTypes.func.isRequired,
-  unLikeScream: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  screamId: PropTypes.string.isRequired
-};
 
-const mapActionsToProps = {
-  likeScream,
-  unLikeScream
+LikeButton.propTypes = {
+  user: PropTypes.object.isRequired,
+  screamId: PropTypes.string.isRequired,
+  likeScream: PropTypes.func.isRequired,
+  unlikeScream: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   user: state.user
 });
-export default connect(mapStateToProps, mapActionsToProps)(LikeBtn);
+
+const mapActionsToProps = {
+  likeScream,
+  unlikeScream
+};
+
+export default connect(mapStateToProps, mapActionsToProps)(LikeButton);

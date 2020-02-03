@@ -3,13 +3,11 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import NoImage from "../images/no-image.jpeg";
 import PropTypes from "prop-types";
 
-import { Button, Paper, Link as MuLink, Typography } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
 import {
   LocationOn,
   Link as LinkIcon,
-  CalendarToday,
-  Edit as EditIcon,
-  KeyboardReturn
+  CalendarToday
 } from "@material-ui/icons";
 
 const ProfileSkeleton = props => {

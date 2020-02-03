@@ -97,7 +97,6 @@ class ScreamDialog extends Component {
       },
       UI: { loading }
     } = this.props;
-    console.log(comments);
     const dialogMarkup = loading ? (
       <div className={classes.progressContainer}>
         <CircularProgress size={200} thickness={2} />

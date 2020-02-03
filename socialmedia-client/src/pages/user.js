@@ -31,7 +31,7 @@ export class User extends Component {
         });
       })
       .catch(err => {
-        console.log(err);
+        console.log("user page", err);
       });
   }
   render() {
