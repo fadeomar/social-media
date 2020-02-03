@@ -24,11 +24,7 @@ const {
 } = require("./handlers/users");
 const FBAuth = require("./utils/FBauth");
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000"]
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 app.get("/screams", getAllScreams);
