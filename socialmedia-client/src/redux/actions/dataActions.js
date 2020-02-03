@@ -52,7 +52,7 @@ export const likeScream = screamId => dispatch => {
 };
 
 // unlike scream
-export const unLikeScream = screamId => dispatch => {
+export const unlikeScream = screamId => dispatch => {
   axios
     .post(`/scream/${screamId}/unlike`)
     .then(res => {

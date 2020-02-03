@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import dayjs from "dayjs";
@@ -10,9 +10,7 @@ import MuLink from "@material-ui/core/Link";
 import {
   LocationOn,
   Link as LinkIcon,
-  CalendarToday,
-  Edit as EditIcon,
-  KeyboardReturn
+  CalendarToday
 } from "@material-ui/icons";
 
 const styles = {
