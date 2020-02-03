@@ -1,5 +1,10 @@
 import React from "react";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  Switch,
+  BrowserRouter as Router,
+  Route,
+  Redirect
+} from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 
@@ -54,6 +59,7 @@ function App() {
                 path="/user/:handle/scream/:screamId"
                 component={User}
               />
+              <Route path="*" component={() => <Redirect to="/" />} />
             </Switch>
           </div>
         </Router>
