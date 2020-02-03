@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 
 import { connect } from "react-redux";
-import { uploadImage, logoutUser } from "../redux/actions/userActions";
+import { uploadImage, logoutUser } from "../../redux/actions/userActions";
+import ProfileSkeleton from "../../utils/ProfileSkeleton";
 
 import EditDetails from "./editDetails";
 
@@ -19,7 +20,7 @@ import {
   KeyboardReturn
 } from "@material-ui/icons";
 import { red } from "@material-ui/core/colors";
-import CustomButton from "../utils/CustomButton";
+import CustomButton from "../../utils/CustomButton";
 
 //Icons
 const styles = {
@@ -132,7 +133,7 @@ export class Profile extends Component {
             <div className={classes.profileDetails}>
               <MuLink
                 component={Link}
-                to={`/users/${handle}`}
+                to={`/user/${handle}`}
                 color="primary"
                 variant="h5"
               >
@@ -200,7 +201,7 @@ export class Profile extends Component {
         </Paper>
       )
     ) : (
-      <p>...loading</p>
+      <ProfileSkeleton />
     );
     return profileMarkup;
   }

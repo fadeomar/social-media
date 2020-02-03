@@ -12,13 +12,17 @@ import { logoutUser, getUserData } from "./redux/actions/userActions";
 import Home from "./pages/home";
 import Signup from "./pages/signup";
 import Login from "./pages/login";
-import Navbar from "./components/navbar";
+import User from "./pages/user";
+import Navbar from "./components/layout/navbar";
 import themeFile from "./utils/theme";
 import AuthRoute from "./utils/authRoute";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./App.css";
 
 const theme = createMuiTheme(themeFile);
+
+axios.defaults.baseURL =
+  "https://us-central1-socialmedia-62dac.cloudfunctions.net/api";
 
 const token = localStorage.FBIdToken;
 if (token) {
@@ -44,6 +48,12 @@ function App() {
               <Route exact path="/" component={Home} />
               <AuthRoute exact path="/login" component={Login} />
               <AuthRoute exact path="/signup" component={Signup} />
+              <Route exact path="/user/:handle" component={User} />
+              <Route
+                exact
+                path="/user/:handle/scream/:screamId"
+                component={User}
+              />
             </Switch>
           </div>
         </Router>

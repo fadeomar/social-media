@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import MonkyImg from "../images/monky.png";
-import axios from "axios";
 
 // MUi
 import Grid from "@material-ui/core/Grid";
